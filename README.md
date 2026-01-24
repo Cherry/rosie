@@ -1,6 +1,8 @@
 # rosie - A robot helper for agent skills
 
-<img src="rosie.png" alt="Rosie the Robot" align="right">
+<p align="center">
+  <img src="rosie.png" alt="Rosie the Robot">
+</p>
 
 A fast, cross-platform package manager for AI agent skills. Think npm, but for skills.
 
