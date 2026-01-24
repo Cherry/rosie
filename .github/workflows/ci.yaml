@@ -34,7 +34,9 @@ jobs:
         run: brew install curl libarchive
 
       - name: Build
-        run: make
+        run: |
+          make EXTRA_CFLAGS="-I$(brew --prefix libarchive)/include" \
+               EXTRA_LDFLAGS="-L$(brew --prefix libarchive)/lib"
 
       - name: Verify binary
         run: |

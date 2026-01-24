@@ -2,6 +2,13 @@ CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c99 -D_POSIX_C_SOURCE=200809L
 LDFLAGS = -lcurl -larchive
 
+# Extra flags for platform-specific paths (e.g., Homebrew on macOS)
+CFLAGS += $(EXTRA_CFLAGS)
+LDFLAGS += $(EXTRA_LDFLAGS)
+
+PREFIX ?= /usr/local
+DESTDIR ?=
+
 SRC_DIR = src
 BUILD_DIR = build
 
@@ -13,7 +20,7 @@ TARGET = rosie
 # Debug build by default
 CFLAGS += -g -O0
 
-.PHONY: all clean release install
+.PHONY: all clean release install uninstall
 
 all: $(TARGET)
 
@@ -33,7 +40,11 @@ clean:
 	rm -rf $(BUILD_DIR) $(TARGET)
 
 install: $(TARGET)
-	install -m 755 $(TARGET) /usr/local/bin/
+	install -d $(DESTDIR)$(PREFIX)/bin
+	install -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/
+
+uninstall:
+	rm -f $(DESTDIR)$(PREFIX)/bin/$(TARGET)
 
 # Dependencies (auto-generated would be better, but this works)
 $(BUILD_DIR)/main.o: $(SRC_DIR)/main.c $(SRC_DIR)/install.h $(SRC_DIR)/agent.h $(SRC_DIR)/util.h
