@@ -171,14 +171,39 @@ Live as of v0.1.2. Initial AUR repo bootstrap was done with `aur/publish-initial
 
 ## 3. FreeBSD (pkg)
 
+### Decisions
+
+- **Target**: FreeBSD 14 only (13.x went EOL April 2026). ABI: `FreeBSD:14:amd64`.
+- **Architecture**: amd64 only. aarch64 under qemu in vmactions is too slow to be worth it; revisit if requested.
+- **Signing**: Unsigned repo. Users add `signature_type: none` to their repo config. Sign later if needed.
+- **Version retention**: Keep all published `.pkg` files in the repo so users can pin to old versions.
+- **Hosting branch**: `gh-pages` branch (not `actions/deploy-pages` artifacts), so old `.pkg` files accumulate naturally in git history.
+
 ### Setup Required
 
 1. **FreeBSD package files** in `freebsd-package/`:
    - `pkg-manifest.ucl` - package metadata
    - `pkg-plist` - file list
-   - `build-package.sh` - build script
-2. **GitHub Pages** to host the repository
+   - `build-package.sh` - build script (runs inside VM)
+2. **GitHub Pages** enabled, serving from `gh-pages` branch
 3. **GitHub Actions workflow** using `vmactions/freebsd-vm`
+
+### Workflow Architecture
+
+The existing single `release` job is split into two parallel jobs so a FreeBSD failure doesn't block Homebrew/AUR:
+- `homebrew-and-aur` — existing logic, ubuntu-latest, ~40s
+- `freebsd` — new job, ubuntu-latest + vmactions/freebsd-vm, ~5min
+
+### FreeBSD Job Steps
+
+1. Checkout `main` and `gh-pages` (into `./pages/`)
+2. Inside FreeBSD VM:
+   - Install deps: `pkg install -y pkgconf curl libarchive`
+   - Build: `make release`
+   - Package: `./freebsd-package/build-package.sh $VERSION`
+   - Add to repo: copy `.pkg` into `pages/freebsd/All/`, run `pkg repo pages/freebsd`
+3. Upload `.pkg` to GitHub Releases
+4. Commit `pages/` changes and push to `gh-pages`
 
 ### Package Manifest Template (`pkg-manifest.ucl`)
 
