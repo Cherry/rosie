@@ -15,6 +15,14 @@ brew tap matthewp/rosie
 brew install rosie
 ```
 
+### AUR (Arch Linux)
+
+```bash
+yay -S rosie
+# or
+paru -S rosie
+```
+
 ### Build from source
 
 #### Dependencies
