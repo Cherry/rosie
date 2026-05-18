@@ -14,20 +14,65 @@ navOrder: 5
 <section class="supported">
   <p class="lockfile-intro">agents are auto-detected by the presence of their config directory in <code>$HOME</code>. target them explicitly with <code>--agent &lt;name&gt;</code>.</p>
 
-  <h3 class="sub-label">skills</h3>
+  <h3 class="sub-label">skills · 57 supported</h3>
   <ul class="bullet-list">
+    <li><span class="bullet">▸</span><strong class="key">adal</strong><span class="val">AdaL · <code>~/.adal/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">aider</strong><span class="val">AiderDesk · <code>~/.aider-desk/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">aider-desk</strong><span class="val">AiderDesk · <code>~/.aider-desk/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">amp</strong><span class="val">Amp · <code>~/.config/agents/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">antigravity</strong><span class="val">Antigravity · <code>~/.gemini/antigravity/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">augment</strong><span class="val">Augment Code · <code>~/.augment/skills/</code> · alias: <code>amplify</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">bob</strong><span class="val">IBM Bob · <code>~/.bob/skills/</code></span></li>
     <li><span class="bullet">▸</span><strong class="key">claude</strong><span class="val">Claude Code · <code>~/.claude/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">cursor</strong><span class="val">Cursor · <code>~/.cursor/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">opencode</strong><span class="val">OpenCode · <code>~/.opencode/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">codex</strong><span class="val">Codex · <code>~/.codex/skills/</code></span></li>
     <li><span class="bullet">▸</span><strong class="key">cline</strong><span class="val">Cline · <code>~/.cline/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">windsurf</strong><span class="val">Windsurf · <code>~/.windsurf/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">codearts-agent</strong><span class="val">CodeArts Agent · <code>~/.codeartsdoer/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">codebuddy</strong><span class="val">CodeBuddy · <code>~/.codebuddy/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">codemaker</strong><span class="val">Codemaker · <code>~/.codemaker/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">codestudio</strong><span class="val">Code Studio · <code>~/.codestudio/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">codex</strong><span class="val">Codex · <code>~/.codex/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">command-code</strong><span class="val">Command Code · <code>~/.commandcode/skills/</code></span></li>
     <li><span class="bullet">▸</span><strong class="key">continue</strong><span class="val">Continue · <code>~/.continue/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">copilot</strong><span class="val">GitHub Copilot · <code>~/.github/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">aider</strong><span class="val">Aider · <code>~/.aider/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">copilot</strong><span class="val">GitHub Copilot · <code>~/.copilot/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">cortex</strong><span class="val">Cortex Code · <code>~/.snowflake/cortex/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">crush</strong><span class="val">Crush · <code>~/.config/crush/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">cursor</strong><span class="val">Cursor · <code>~/.cursor/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">deepagents</strong><span class="val">Deep Agents · <code>~/.deepagents/agent/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">devin</strong><span class="val">Devin · <code>~/.config/devin/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">dexto</strong><span class="val">Dexto · <code>~/.agents/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">droid</strong><span class="val">Droid (Factory) · <code>~/.factory/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">firebender</strong><span class="val">Firebender · <code>~/.firebender/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">forgecode</strong><span class="val">ForgeCode · <code>~/.forge/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">gemini-cli</strong><span class="val">Gemini CLI · <code>~/.gemini/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">goose</strong><span class="val">Goose · <code>~/.config/goose/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">hermes-agent</strong><span class="val">Hermes Agent · <code>~/.hermes/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">iflow-cli</strong><span class="val">iFlow CLI · <code>~/.iflow/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">junie</strong><span class="val">Junie · <code>~/.junie/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">kilo</strong><span class="val">Kilo Code · <code>~/.kilocode/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">kimi-cli</strong><span class="val">Kimi Code CLI · <code>~/.config/agents/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">kiro-cli</strong><span class="val">Kiro CLI · <code>~/.kiro/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">kode</strong><span class="val">Kode · <code>~/.kode/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">mcpjam</strong><span class="val">MCPJam · <code>~/.mcpjam/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">mistral-vibe</strong><span class="val">Mistral Vibe · <code>~/.vibe/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">mux</strong><span class="val">Mux · <code>~/.mux/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">neovate</strong><span class="val">Neovate · <code>~/.neovate/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">opencode</strong><span class="val">OpenCode · <code>~/.config/opencode/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">openclaw</strong><span class="val">OpenClaw · <code>~/.openclaw/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">openhands</strong><span class="val">OpenHands · <code>~/.openhands/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">pi</strong><span class="val">Pi · <code>~/.pi/agent/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">pochi</strong><span class="val">Pochi · <code>~/.pochi/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">qoder</strong><span class="val">Qoder · <code>~/.qoder/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">qwen-code</strong><span class="val">Qwen Code · <code>~/.qwen/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">replit</strong><span class="val">Replit · <code>~/.config/agents/skills/</code></span></li>
     <li><span class="bullet">▸</span><strong class="key">roo</strong><span class="val">Roo · <code>~/.roo/skills/</code></span></li>
-    <li><span class="bullet">▸</span><strong class="key">amplify</strong><span class="val">Amplify · <code>~/.amplify/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">rovodev</strong><span class="val">Rovo Dev · <code>~/.rovodev/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">tabnine-cli</strong><span class="val">Tabnine CLI · <code>~/.tabnine/agent/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">trae</strong><span class="val">Trae · <code>~/.trae/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">trae-cn</strong><span class="val">Trae CN · <code>~/.trae-cn/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">universal</strong><span class="val">Universal · <code>~/.config/agents/skills/</code> · explicit only (no auto-detect)</span></li>
+    <li><span class="bullet">▸</span><strong class="key">warp</strong><span class="val">Warp · <code>~/.agents/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">windsurf</strong><span class="val">Windsurf · <code>~/.codeium/windsurf/skills/</code></span></li>
     <li><span class="bullet">▸</span><strong class="key">zed</strong><span class="val">Zed · <code>~/.zed/skills/</code></span></li>
+    <li><span class="bullet">▸</span><strong class="key">zencoder</strong><span class="val">Zencoder · <code>~/.zencoder/skills/</code></span></li>
   </ul>
 
   <h3 class="sub-label">references</h3>

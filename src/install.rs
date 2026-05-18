@@ -171,7 +171,16 @@ pub fn install_skill_to_agent(skill: &Skill, agent: &Agent, opts: &InstallOption
 }
 
 /// Local install: symlink an agent's skills dir to the canonical path.
+///
+/// When an agent's project path *is* the canonical store (`.agents/skills`),
+/// no symlink is needed — the skill already lives where the agent looks.
+/// For other agents, build a relative `../../...` prefix with one `..` per
+/// path component in `agent.install_path` so the link is correct for any
+/// install depth (e.g. `.tabnine/agent/skills` needs three).
 fn install_skill_local(skill_name: &str, agent: &Agent, canonical_path: &Path) -> i32 {
+    if agent.install_path.as_path() == Path::new(LOCAL_SKILLS_DIR) {
+        return 0;
+    }
     if let Err(e) = os::create_dir_all(&agent.install_path) {
         crate::log::error(&format!("Cannot create directory: {e}"));
         return -1;
@@ -193,9 +202,16 @@ fn install_skill_local(skill_name: &str, agent: &Agent, canonical_path: &Path) -
             _ => {}
         }
     }
-    // Symlink target: "../../<canonical>" — one level up from .<agent>/skills/
-    // gets us to .<agent>/, another to project root.
-    let relative_target = PathBuf::from(format!("../../{}", canonical_path.display()));
+    let depth = agent
+        .install_path
+        .components()
+        .filter(|c| matches!(c, std::path::Component::Normal(_)))
+        .count();
+    let mut prefix = String::new();
+    for _ in 0..depth {
+        prefix.push_str("../");
+    }
+    let relative_target = PathBuf::from(format!("{}{}", prefix, canonical_path.display()));
     crate::log::debug(&format!(
         "Symlink: {} -> {}",
         link_path.display(),

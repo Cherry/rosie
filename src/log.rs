@@ -55,6 +55,7 @@ fn dispatch(level: Level, message: &str) {
     }
     match level {
         Level::Error => eprintln!("rosie: error: {}", message),
+        Level::Warn => eprintln!("rosie: warning: {}", message),
         Level::Debug => {
             if verbose() {
                 println!("[debug] {}", message);
@@ -66,6 +67,10 @@ fn dispatch(level: Level, message: &str) {
 
 pub fn info(message: &str) {
     dispatch(Level::Info, message);
+}
+
+pub fn warn(message: &str) {
+    dispatch(Level::Warn, message);
 }
 
 pub fn error(message: &str) {
